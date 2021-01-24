@@ -33,7 +33,9 @@ function insertHtml(array = [], func) {
 
 var updateDuration = function () {
     var random = Math.random()
-    glowText.style.setProperty("--animation-time", random + 1 + 's')
+    Array.from(document.getElementsByClassName("flicker-r")).forEach(attr => {
+        attr.style.setProperty("--animation-time", (random * 3) + 2 + 's')
+    })
 }
 
 var updateTime = function () {
@@ -52,6 +54,7 @@ var start = function () {
 function loop() {
     insertHtml(dateClassifier(times), updateTime())
     setInterval(start, 1000)
+    setInterval(updateDuration, 1000)
 }
 
 loop()
