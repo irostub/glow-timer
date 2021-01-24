@@ -1,3 +1,3 @@
 # glow-timer
 
-https://irostub.github.io/irostub/glow-timer
+https://irostub.github.io/glow-timer
