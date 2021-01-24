@@ -5,12 +5,13 @@
 
 *{
     box-sizing: border-box;
-    margin: 0;
     font-family: 'Orbitron', sans-serif;
+    margin: 0;
 }
 
-html{
+html,body{
     background-color:#111;
+    height: 100%;
 }
 .container{
     display: flex;
@@ -23,23 +24,38 @@ html{
 }
 
 #time-field{
-    padding: 2vw 3.5vw 2vw 3.5vw;
+    width: 100%;
+    text-align: center;
+    padding: 1.5vw 2vw 1.5vw 2vw;
     border:2px solid rgb(235, 235, 235);
-    border-radius:1vw;
-    box-shadow: 0 0 5vw #fff, 
-                0 0 1vw #fff,
-                0 0 0.3vw #fff;
+    border-left-style:none;
+    border-right-style:none;
+    box-shadow:0 0 0.3vw #fff;
 }
 
 .time{
     display:inline-block;
     width:1em;
-    font-size:5vw;
+    font-size:3vw;
     color:#FFF;
     text-align: center;
-    -webkit-animation: glow 1s infinite;
-    -moz-animation: glow 1s infinite;
-    animation: glow 1s infinite;
+    text-shadow: 0 0 0.5em white;
+}
+
+.flicker-s{
+    -webkit-animation: flicker 3s linear infinite;
+    -moz-animation: flicker 3s linear infinite;
+    animation: flicker 3s linear infinite;
+}
+.flicker-r{
+    -webkit-animation: flicker var(--animation-time) linear infinite;
+    -moz-animation: flicker var(--animation-time) linear infinite;
+    animation: flicker var(--animation-time) linear infinite;
+}
+.flicker-f{
+    -webkit-animation: flicker 2s linear infinite;
+    -moz-animation: flicker 2s linear infinite;
+    animation: flicker 2s linear infinite;
 }
 
 @keyframes glow{
@@ -60,5 +76,13 @@ html{
         text-shadow:0 0 1px #fff,
                     0 0 3px #fff;
     }
-    
 }  
+
+@keyframes flicker {
+    0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+        opacity: .99;
+	}
+	20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+		opacity: 0.4;
+    }
+}
